@@ -5,11 +5,53 @@
   </head>
   <body>
     <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
+      <a-assets>
+        <!-- Background image -->
+        <img id="sky1" src="assets/Milky way.jpg">
+
+        <!-- Planet textures -->
+        <img id="planet1" src="assets/planets/planet_gas_Base_Color.jpg">
+        <img id="planet2" src="assets/planets/planet_continental_Base_Color.jpg">
+        <img id="planet3" src="assets/planets/planet_barren_Base_Color.jpg">
+        <img id="planet4" src="assets/planets/planet_lava_Base_Color.jpg">
+        <img id="planet5" src="assets/planets/planet_frozen_Base_Color.jpg">
+      </a-assets>
+
+      <!-- BACKGROUND -->
+      <a-sky src="#sky1"></a-sky>
+
+      <!-- PLANETS  -->
+
+      <a-sphere position="0 5 -30"
+                radius="6"
+                src="#planet1"
+                animation="property: rotation; to: 0 360 0; dur: 60000; loop: true">
+      </a-sphere>
+
+      <a-sphere position="8 3 -25"
+                radius="3"
+                src="#planet2"
+                animation="property: rotation; to: 0 -360 0; dur: 50000; loop: true">
+      </a-sphere>
+
+      <a-sphere position="-8 1 -23"
+                radius="2.5"
+                src="#planet3"
+                animation="property: rotation; to: 0 360 0; dur: 45000; loop: true">
+      </a-sphere>
+
+      <a-sphere position="-4 -2 -28"
+                radius="2.8"
+                src="#planet4"
+                animation="property: rotation; to: 0 360 0; dur: 40000; loop: true">
+      </a-sphere>
+
+      <a-sphere position="5 -2 -35"
+                radius="3"
+                src="#planet5"
+                animation="property: rotation; to: 0 -360 0; dur: 55000; loop: true">
+      </a-sphere>
+
     </a-scene>
   </body>
 </html>
