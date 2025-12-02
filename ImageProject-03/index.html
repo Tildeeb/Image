@@ -1,56 +1,72 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"> </script>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
   </head>
   <body>
     <a-scene>
-      <a-assets>
-        <!-- Background image -->
-        <img id="sky1" src="assets/Milky way.jpg">
 
-        <!-- Planet textures -->
-        <img id="planet1" src="assets/planets/planet_gas_Base_Color.jpg">
-        <img id="planet2" src="assets/planets/planet_continental_Base_Color.jpg">
-        <img id="planet3" src="assets/planets/planet_barren_Base_Color.jpg">
-        <img id="planet4" src="assets/planets/planet_lava_Base_Color.jpg">
-        <img id="planet5" src="assets/planets/planet_frozen_Base_Color.jpg">
+      <a-assets>
+        <!-- load background image -->
+        <img id="sky" src="Assets/turbo-planet/Background.jpg">
+         <img id="sky2" src="Assets/turbo-planet/winter.jpg">
+         <img id="sky3" src="Assets/turbo-planet/christmas.jpg">
+          <img id="sky4" src="Assets/turbo-planet/candyland.jpg">
+
+        <!-- load planet model -->
+        <a-asset-item id="planetModel"
+          src="Assets/turbo-planet/source/turbo planet.glb"></a-asset-item>
+
+        <!-- load star model -->
+        <a-asset-item id="starModel"
+          src="Assets/turbo-planet/star 2/source/Star.glb"></a-asset-item>
       </a-assets>
 
-      <!-- BACKGROUND -->
-      <a-sky src="#sky1"></a-sky>
+      <!-- call background -->
+      <a-sky src="#sky" radius="5000"></a-sky>
 
-      <!-- PLANETS  -->
+      <!-- winter planet -->
 
-      <a-sphere position="0 5 -30"
-                radius="6"
-                src="#planet1"
-                animation="property: rotation; to: 0 360 0; dur: 60000; loop: true">
+       <a-sphere position="-2 1 -2"
+                radius="1"
+                src="#sky2"
+                side="double"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
       </a-sphere>
 
-      <a-sphere position="8 3 -25"
-                radius="3"
-                src="#planet2"
-                animation="property: rotation; to: 0 -360 0; dur: 50000; loop: true">
+      <!-- christmas planet inside the star -->
+
+       <a-sphere position="2 2 -4"
+                radius="0.6"
+                src="#sky3"
+                side="double"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 12000">
       </a-sphere>
 
-      <a-sphere position="-8 1 -23"
-                radius="2.5"
-                src="#planet3"
-                animation="property: rotation; to: 0 360 0; dur: 45000; loop: true">
+      <!-- sphere inside the planet -->
+
+      <a-sphere position="0 1.5 -3"
+                radius="0.7"
+                src="#sky4"
+                side="double"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 15000">
       </a-sphere>
 
-      <a-sphere position="-4 -2 -28"
-                radius="2.8"
-                src="#planet4"
-                animation="property: rotation; to: 0 360 0; dur: 40000; loop: true">
-      </a-sphere>
+      <!-- call planet -->
+      <a-entity gltf-model="#planetModel"
+        position="0 1.5 -3"
+        scale="1 1 1"
+        material="color: white; emissive: white; emissiveIntensity: 2"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 15000">
+      </a-entity>
 
-      <a-sphere position="5 -2 -35"
-                radius="3"
-                src="#planet5"
-                animation="property: rotation; to: 0 -360 0; dur: 55000; loop: true">
-      </a-sphere>
+      <!-- call star -->
+      <a-entity gltf-model="#starModel"
+        position="2 2 -4"
+        scale="1 1 1"
+        material="color: white; emissive: white; emissiveIntensity: 2"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 20000">
+      </a-entity>
 
     </a-scene>
   </body>
